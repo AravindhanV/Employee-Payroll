@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import profile1 from '../../assets/profile-imgs/Ellipse -3.png';
-import profile2 from '../../assets/profile-imgs/Ellipse 1.png';
-import profile3 from '../../assets/profile-imgs/Ellipse -8.png';
-import profile4 from '../../assets/profile-imgs/Ellipse -7.png';
+import profile1 from '../../assets/profile-images/Ellipse -3.png';
+import profile2 from '../../assets/profile-images/Ellipse 1.png';
+import profile3 from '../../assets/profile-images/Ellipse -8.png';
+import profile4 from '../../assets/profile-images/Ellipse -7.png';
 import './payroll-form.scss';
 import logo from '../../assets/logo.png';
 import EmployeeService from '../../services/employee-services'

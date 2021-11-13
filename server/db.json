@@ -28,16 +28,29 @@
             "profilePic": "../assets/profile-imgs/Ellipse -9.png"
         },
         {
-            "name": "Zoya Sanjeev",
+            "name": "Kelly",
             "gender": "female",
             "department": [
                 "Sales"
             ],
-            "salary": "400000",
+            "salary": "500000",
             "startDate": "17 Oct 2021",
             "notes": "",
             "profilePic": "../assets/profile-imgs/Ellipse -1.png",
             "id": 3
+        },
+        {
+            "name": "Priya",
+            "departmentValues": [
+                "Sales",
+                "Finance"
+            ],
+            "gender": "Female",
+            "salary": "450000",
+            "startDate": "1 Jan 2021",
+            "notes": "note",
+            "id": 4,
+            "profileUrl": "../../assets/profile-images/Ellipse 1.png"
         }
     ]
 }
