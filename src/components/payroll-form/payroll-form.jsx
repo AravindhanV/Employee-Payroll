@@ -110,7 +110,6 @@ const PayrollForm = (props) => {
 
     const save = async (event) => {
         event.preventDefault();
-        console.log("save");
 
         if (await validData()) {
             console.log('error', formValue);
