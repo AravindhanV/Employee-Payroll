@@ -41,7 +41,7 @@
     },
     {
       "name": "Priya",
-      "departmentValues": [
+      "department": [
         "Sales",
         "Finance"
       ],

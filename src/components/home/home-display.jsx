@@ -14,7 +14,11 @@ const Display = (props) => {
             editEmployee = employeeData.data;
             employee.updateEmployee(editEmployee, id);
         });
-        
+    }
+
+    const remove = (id) => {
+        employee.deleteEmployee(id);
+        window.location.reload();
     }
 
     return (
@@ -48,8 +52,6 @@ const Display = (props) => {
             </tbody>
         </table>
     )
-}
-const remove = (id) => {
 }
 
 export default Display;

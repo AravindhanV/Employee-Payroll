@@ -20,7 +20,7 @@ const PayrollForm = (props) => {
         allDepartments: [
             'HR', 'Sales', 'Finance', 'Engineer', 'Others'
         ],
-        departmentValues: [],
+        department: [],
         gender: '',
         salary: '',
         day: '1',
@@ -29,14 +29,14 @@ const PayrollForm = (props) => {
         startDate: '',
         notes: '',
         id: '',
-        profileUrl: '',
+        profilePic: '',
         isUpdate: false,
         error: {
             department: '',
             name: '',
             gender: '',
             salary: '',
-            profileUrl: '',
+            profilePic: '',
             startDate: ''
         }
     }
@@ -50,17 +50,17 @@ const PayrollForm = (props) => {
     }
 
     const onCheckChange = (name) => {
-        let index = formValue.departmentValues.indexOf(name);
-        let checkArray = [...formValue.departmentValues]
+        let index = formValue.department.indexOf(name);
+        let checkArray = [...formValue.department]
         if (index > -1)
             checkArray.splice(index, 1)
         else
             checkArray.push(name);
-        setForm({ ...formValue, departmentValues: checkArray });
+        setForm({ ...formValue, department: checkArray });
     }
 
     const getChecked = (name) => {
-        return formValue.departmentValues && formValue.departmentValues.includes(name);
+        return formValue.department && formValue.department.includes(name);
     }
 
     const validData = async () => {
@@ -70,7 +70,7 @@ const PayrollForm = (props) => {
             name: '',
             gender: '',
             salary: '',
-            profileUrl: '',
+            profilePic: '',
             startDate: ''
         }
         if (!formValue.name.match('^[A-Z]{1}[a-zA-Z]{2,}')) {
@@ -85,11 +85,11 @@ const PayrollForm = (props) => {
             error.salary = 'Salary should be between 4,00,000 and 5,00,000!!'
             isError = true;
         }
-        if (formValue.profileUrl.length < 1) {
+        if (formValue.profilePic.length < 1) {
             error.name = 'Profile is required field'
             isError = true;
         }
-        if (formValue.departmentValues.length < 1) {
+        if (formValue.department.length < 1) {
             error.name = 'Department is required field'
             isError = true;
         }
@@ -117,13 +117,13 @@ const PayrollForm = (props) => {
 
         let object = {
             name: formValue.name,
-            departmentValues: formValue.departmentValues,
+            department: formValue.department,
             gender: formValue.gender,
             salary: formValue.salary,
             startDate: `${formValue.day} ${formValue.month} ${formValue.year}`,
             notes: formValue.notes,
             id: '',
-            profileUrl: formValue.profileUrl,
+            profilePic: formValue.profilePic,
         }
 
         employeeService.addEmployee(object).then(data => {
@@ -168,26 +168,26 @@ const PayrollForm = (props) => {
                         <div className="error">{formValue.error.name}</div>
                     </div>
                     <div className="row-content">
-                        <label className="label text" htmlFor="profileUrl">Profile Image</label>
+                        <label className="label text" htmlFor="profilePic">Profile Image</label>
                         <div className="profile-radio-content">
                             <label>
-                                <input type="radio" checked={formValue.profileUrl === "../../assets/profile-images/Ellipse -3.png"} name="profileUrl" value="../../assets/profile-images/Ellipse -3.png" onChange={changeValue} />
+                                <input type="radio" checked={formValue.profilePic === "../../assets/profile-images/Ellipse -3.png"} name="profilePic" value="../../assets/profile-images/Ellipse -3.png" onChange={changeValue} />
                                 <img className="profile" id='image1' src={profile1} alt="profile" />
                             </label>
                             <label>
-                                <input type="radio" checked={formValue.profileUrl === "../../assets/profile-images/Ellipse 1.png"} name="profileUrl" value="../../assets/profile-images/Ellipse 1.png" onChange={changeValue} />
+                                <input type="radio" checked={formValue.profilePic === "../../assets/profile-images/Ellipse 1.png"} name="profilePic" value="../../assets/profile-images/Ellipse 1.png" onChange={changeValue} />
                                 <img className="profile" id='image1' src={profile2} alt="profile" />
                             </label>
                             <label>
-                                <input type="radio" checked={formValue.profileUrl === "../../assets/profile-images/Ellipse -8.png"} name="profileUrl" value="../../assets/profile-images/Ellipse -8.png" onChange={changeValue} />
+                                <input type="radio" checked={formValue.profilePic === "../../assets/profile-images/Ellipse -8.png"} name="profilePic" value="../../assets/profile-images/Ellipse -8.png" onChange={changeValue} />
                                 <img className="profile" id='image1' src={profile3} alt="profile" />
                             </label>
                             <label>
-                                <input type="radio" checked={formValue.profileUrl === "../../assets/profile-images/Ellipse -7.png"} name="profileUrl" value="../../assets/profile-images/Ellipse -7.png" onChange={changeValue} />
+                                <input type="radio" checked={formValue.profilePic === "../../assets/profile-images/Ellipse -7.png"} name="profilePic" value="../../assets/profile-images/Ellipse -7.png" onChange={changeValue} />
                                 <img className="profile" id='image1' src={profile4} alt="profile" />
                             </label>
                         </div>
-                        <div className="error">{formValue.error.profileUrl}</div>
+                        <div className="error">{formValue.error.profilePic}</div>
                     </div>
                     <div className="row-content">
                         <label className="label text" htmlFor="gender">Gender</label>
