@@ -112,7 +112,6 @@ const PayrollForm = (props) => {
         event.preventDefault();
 
         if (await validData()) {
-            console.log('error', formValue);
             return;
         }
 
@@ -147,7 +146,6 @@ const PayrollForm = (props) => {
 
     const reset = () => {
         setForm({ ...initialValue, id: formValue.id, isUpdate: formValue.isUpdate });
-        console.log(formValue);
     }
 
     return (
@@ -206,7 +204,7 @@ const PayrollForm = (props) => {
                         <div>
                             {formValue.allDepartments.map(item => (
                                 <span key={item}>
-                                    <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item} defaultChecked={() => getChecked(item)} value={item} />
+                                    <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item} defaultChecked={getChecked(item)} value={item} />
                                     <label className="text" htmlFor={item}>{item}</label>
                                 </span>
                             ))}
