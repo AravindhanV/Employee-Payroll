@@ -8,8 +8,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<PayrollForm />} />
-          <Route path="/home" element={<Home />} />
+          <Route exact path="/payroll-form" element={<PayrollForm />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/payroll-form/:id" element={<PayrollForm />} />
         </Routes>
       </BrowserRouter>
     </div>
