@@ -4,15 +4,13 @@ import deleteIcon from '../../assets/icons/delete-black-18dp.svg';
 import editIcon from '../../assets/icons/create-black-18dp.svg';
 import profile1 from '../../assets/profile-images/Ellipse -3.png';
 import EmployeeService from '../../services/employee-services';
+import { Link } from 'react-router-dom';
 
 var employee = new EmployeeService();
 
 const Display = (props) => {
-    const update = (id) => {
-        let editEmployee;
-        employee.getEmployee(id).then(employeeData => {
-            editEmployee = employeeData.data;
-            employee.updateEmployee(editEmployee, id);
+    const update = async (id) => {
+        employee.getEmployee(id).then((data) => {
         });
     }
 
@@ -45,7 +43,7 @@ const Display = (props) => {
                             <td> ₹ {employee.salary}</td>
                             <td>{employee.startDate}</td>
                             <td><img src={deleteIcon} onClick={() => remove(employee.id)} alt="delete" />
-                                <img src={editIcon} onClick={() => update(employee.id)} alt="edit" /></td>
+                                <Link to={"/payroll-form/" + employee.id}><img src={editIcon} onClick={() => update(employee.id)} alt="edit" /></Link></td>
                         </tr>
                     ))
                 }

@@ -11,8 +11,8 @@ export default class EmployeeService {
         return AxiosService.getService(`${this.baseUrl}employee`);
     }
 
-    getEmployee(id) {
-        return AxiosService.getService(`${this.baseUrl}employee/${id}`);
+    async getEmployee(id) {
+        return (await AxiosService.getService(`${this.baseUrl}employee/${id}`));
     }
 
     updateEmployee(data) {
